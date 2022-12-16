@@ -1,0 +1,19 @@
+version: '1.0.0'
+
+services:
+  db: 
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: customercontrol
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+  sys:
+    depends_on:
+      - db
+    image: php:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: customercontrol
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
